@@ -1,0 +1,46 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+.venv/
+rt_env/
+env/
+*.egg-info/
+
+# Models
+*.pt
+*.pth
+*.onnx
+*.h5
+
+# Data
+data/outputs/*
+data/samples/*
+*.mp4
+*.avi
+*.wav
+
+# Logs
+*.log
+logs/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+
+.venv/
+__pycache__/
+*.pyc
+build/
+data/*
+!.gitkeep
+.vscode/
