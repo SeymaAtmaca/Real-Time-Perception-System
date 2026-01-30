@@ -2,6 +2,13 @@
 <sdf version="1.9">
   <world name="simple_city">
 
+    <!-- ANIMATED HUMAN -->
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/MaleVisitorPhone</uri>
+      <name>walking_person</name>
+      <pose>2 3 0 0 0 -1</pose>
+    </include>
+
     <!-- PHYSICS PLUGIN -->
     <plugin
       filename="gz-sim-physics-system"
