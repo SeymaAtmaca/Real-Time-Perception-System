@@ -4,25 +4,30 @@ from gz.transport13 import Node
 from gz.msgs10.image_pb2 import Image
 import numpy as np
 import cv2
+from ultralytics import YOLO
+
+model = YOLO("yolov8n.pt") 
 
 def camera_callback(msg: Image):
-    """Kamera görüntüsünü işle"""
-    # Görüntü boyutları
     width = msg.width
     height = msg.height
-    
-    print(f"Görüntü alındı: {width}x{height}, format: {msg.pixel_format_type}")
-    
-    # RGB verisini numpy array'e çevir
+
     img_data = np.frombuffer(msg.data, dtype=np.uint8)
     img_data = img_data.reshape((height, width, 3))
-    
-    # BGR'ye çevir (OpenCV için)
     img_bgr = cv2.cvtColor(img_data, cv2.COLOR_RGB2BGR)
-    
-    # Göster
-    cv2.imshow('Quadcopter Camera', img_bgr)
+
+    # YOLO inference (sadece insan)
+    results = model(
+        img_bgr,
+        conf=0.4,
+        classes=[0],   # person
+        verbose=False
+    )
+
+    annotated = results[0].plot()
+    cv2.imshow("YOLO - Quadcopter Camera", annotated)
     cv2.waitKey(1)
+
 
 def main():
     # Node oluştur
