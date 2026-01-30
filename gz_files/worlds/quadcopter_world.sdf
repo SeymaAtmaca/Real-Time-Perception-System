@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<sdf version="1.9">
+  <world name="quadcopter_world">
+
+    <physics type="ignition">
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1.0</real_time_factor>
+    </physics>
+
+    <include>
+      <uri>model://quadcopter</uri>
+      <pose>0 0 3 0 0 0</pose>
+    </include>
+
+  </world>
+</sdf>
