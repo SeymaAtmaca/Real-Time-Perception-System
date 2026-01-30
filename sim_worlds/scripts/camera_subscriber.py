@@ -30,10 +30,8 @@ def camera_callback(msg: Image):
 
 
 def main():
-    # Node oluştur
     node = Node()
     
-    # Topic'e abone ol
     topic = "/quadcopter/camera/image"
     
     print(f"'{topic}' topic'ine abone oluyor...")
